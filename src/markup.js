@@ -317,7 +317,7 @@ Mark.up = function (template, context, options) {
         }
 
         // Replace the tag, e.g. "{{name}}", with the result, e.g. "Adam".
-        template = template.replace(tag, result === undefined ? "???" : result);
+        template = template.replace(tag, result === undefined ? "???" : result.replace(/\$/g, '$$$$'));
     }
 
     return this.compact ? template.replace(/>\s+</g, "><") : template;
